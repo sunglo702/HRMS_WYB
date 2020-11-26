@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hrms.mapper.EmployeeMapper">
+    <sql id="table_name">emp</sql>
+    <sql id="select_fields">
+      eno, name, mail, gender, dno
+    </sql>
+    <sql id="select_withdept_fields">
+        e.eno, name, mail, gender, d.dno, dept_leader, dname
+    </sql>
+
+    <resultMap id="withDeptResultMap" type="com.hrms.bean.Employee">
+        <id column="empId" property="empId"></id>
+        <result column="empName" property="empName"></result>
+        <result column="empEmail" property="empEmail"></result>
+        <result column="gender" property="gender"></result>
+        <result column="departmentId" property="departmentId"></result>
+        <association property="department" column="department_id" javaType="com.hrms.bean.Department">
+            <id column="deptId" property="deptId"></id>
+            <result column="deptLeader" property="deptLeader"></result>
+            <result column="deptName" property="deptName"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectOneById" parameterType="java.lang.Integer" resultType="com.hrms.bean.Employee">
+        SELECT
+        eno, name, mail, gender, dno
+        FROM
+        <include refid="table_name"/>
+        WHERE
+        eno = #{empId}
+    </select>
+
+    <select id="selectOneByName" parameterType="String" resultType="com.hrms.bean.Employee">
+        SELECT
+        eno, name, mail, gender, dno
+        FROM
+        <include refid="table_name"/>
+        WHERE
+        name = #{empName}
+    </select>
+
+    <select id="selectWithDeptById" parameterType="Integer"  resultMap="withDeptResultMap">
+        SELECT
+        e.eno as 'empId', name as 'empName', mail as 'empEmail', gender, d.dno as 'departmentId',
+         dept_leader as 'deptLeader', dname as 'deptName'
+        FROM
+       emp e, dept d
+        WHERE
+        e.dno = d.dno
+        AND
+        e.eno = #{empId}
+    </select>
+
+    <select id="selectByLimitAndOffset" resultMap="withDeptResultMap">
+        SELECT
+        e.eno as 'empId', name as 'empName', mail as 'empEmail', gender, d.dno as 'departmentId',
+         dept_leader as 'deptLeader', dname as 'deptName'
+        FROM
+        emp e
+        LEFT JOIN
+        dept d
+        ON
+        e.dno = d.dno
+        ORDER BY e.eno
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <update id="updateOneById" parameterType="com.hrms.bean.Employee">
+        UPDATE
+        <include refid="table_name"/>
+        SET
+        mail = #{employee.empEmail, jdbcType = VARCHAR},
+        gender = #{employee.gender, jdbcType = VARCHAR},
+        dno = #{employee.departmentId, jdbcType = INTEGER}
+        WHERE
+        eno = #{empId, jdbcType = INTEGER}
+    </update>
+</mapper>

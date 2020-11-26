@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hrms.mapper.LeaveMapper">
+    <sql id="table_name">
+        attend
+    </sql>
+
+    <resultMap id="leaveResult" type="com.hrms.bean.Leave">
+        <id column="ano" property="ano"></id>
+        <result column="ename" property="ename"></result>
+        <result column="eno" property="eno"></result>
+        <result column="dno" property="dno"></result>
+        <result column="adate" property="date"></result>
+        <result column="leave_reason" property="reason"></result>
+    </resultMap>
+
+    <select id="selectByLimitAndOffset" resultMap="leaveResult">
+        SELECT
+        ano,ename,eno,dno,adate as 'date',leave_reason as 'reason'
+        FROM
+        <include refid="table_name"></include>
+        LIMIT #{offset}, #{limit}
+    </select>
+
+
+
+</mapper>

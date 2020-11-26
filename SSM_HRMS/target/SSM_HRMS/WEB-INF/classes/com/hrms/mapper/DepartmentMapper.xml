@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hrms.mapper.DepartmentMapper">
+    <sql id="table_name">
+        dept
+    </sql>
+    <sql id="select_fields">
+        dept_id , dept_name, dept_leader
+    </sql>
+    <resultMap id="deptResult" type="com.hrms.bean.Department">
+        <id column="dno" property="deptId"></id>
+        <result column="dname" property="deptName"></result>
+        <result column="dept_leader" property="deptLeader"></result>
+    </resultMap>
+
+    <select id="selectDeptsByLimitAndOffset" resultMap="deptResult">
+        SELECT
+        dno as 'deptId', dname as 'deptName', dept_leader as 'deptLeader'
+        FROM
+        <include refid="table_name"></include>
+        LIMIT #{offset}, #{limit}
+    </select>
+
+    <update id="updateDeptById" parameterType="com.hrms.bean.Department">
+        UPDATE
+        <include refid="table_name"></include>
+        SET
+        dname = #{department.deptName, jdbcType = VARCHAR},
+        dept_leader = #{department.deptLeader, jdbcType = VARCHAR}
+        WHERE
+        dno = #{deptId}
+    </update>
+
+</mapper>
