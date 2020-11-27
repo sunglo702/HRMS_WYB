@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="按条件删除，不填则不筛选该项"
+        android:id="@+id/hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/enoItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/eno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="false"
+            android:text="员工ID" />
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="#bfc6dc">
+
+        </View>
+
+        <EditText
+            android:id="@+id/enoValue"
+            android:hint="ID作为某一用户的的唯一标识"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="false"
+            android:text="姓名" />
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="#bfc6dc">
+
+        </View>
+
+        <EditText
+            android:id="@+id/nameValue"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="false"
+            android:text="性别" />
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="#bfc6dc">
+
+        </View>
+
+        <EditText
+            android:id="@+id/genderValue"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="false"
+            android:text="年龄" />
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="#bfc6dc">
+
+        </View>
+
+        <EditText
+            android:id="@+id/ageValue"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/addr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="false"
+            android:text="籍贯" />
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="#bfc6dc">
+
+        </View>
+
+        <EditText
+            android:id="@+id/addrValue"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="" />
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/dnoItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:singleLine="false"
+            android:text="部门ID" />
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="#bfc6dc">
+
+        </View>
+
+        <EditText
+            android:id="@+id/dnoValue"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/positive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:singleLine="false"
+            android:text="确认" />
+
+        <Button
+            android:id="@+id/negative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:singleLine="false"
+            android:text="取消" />
+    </LinearLayout>
+
+</LinearLayout>
